@@ -1,0 +1,3312 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{refstyle}
+
+% add formatted references for refstyle
+\RS@ifundefined{propref}{\newref{prop}{name=proposition~}}{}
+\RS@ifundefined{defref}{\newref{def}{name=definition~}}{}
+\RS@ifundefined{exerref}{\newref{exer}{name=exercise~}}{}
+
+\newref{example}{name=example~}
+\newref{exercise}{name=exercise~}
+\end_preamble
+\use_default_options true
+\begin_modules
+logicalmkup
+theorems-ams
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+Format 66
+InsetLayout Flex:definition
+    LyxType               charstyle
+    LabelString           definitinon
+    LatexType             command
+    LatexName             definition
+    Font
+      Color	cyan
+      Series	Bold
+    EndFont
+    Preamble
+    \newcommand{\definition}[1]{\textcolor{cyan}{\textbf{\index{#1}#1}}}
+    EndPreamble
+    InToc                 true
+    HTMLTag               code
+	ResetsFont true
+End
+\end_local_layout
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\branch Solutions
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Completing the Square
+\end_layout
+
+\begin_layout Author
+Evan Russenberger-Rosica
+\end_layout
+
+\begin_layout Abstract
+Completing the square is a method for converting a quadratic polynomial
+ of the form 
+\begin_inset Formula $ax^{2}+bx+c$
+\end_inset
+
+ to the form 
+\begin_inset Formula $a\left(x+h\right)^{2}+k$
+\end_inset
+
+.
+ It is useful is both elementary algebra and higher mathematics.
+ In this article, we attempt to create a deep understanding of completing
+ the square starting from first principles.
+ We begin with a brief introduction to the concept of factoring and review
+ the grouping method and its shortcomings.
+ We then discuss how to complete the square and illustrate how it can be
+ used to derive the quadratic formula.
+ We conclude with a geometric visualization of completing the square as
+ well as a brief comparison to other factoring methods.
+ Several exercises are then provided for the reader.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diagrams/fig-completing_the_square_no_grid.pdf
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction to Factoring
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+Factoring
+\end_layout
+
+\end_inset
+
+ or 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+factorization
+\end_layout
+
+\end_inset
+
+ is the process of writing a number or another mathematical object as a
+ product of several 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+factors
+\end_layout
+
+\end_inset
+
+, usually smaller or simpler objects of the same kind.
+ In other words, factoring a mathematical object is the process of decomposing
+ it into smaller parts (the factors), which when multiplied together, result
+ in the original object.
+ For example, 
+\begin_inset Formula $2\times2\times5$
+\end_inset
+
+, 
+\begin_inset Formula $-4\times-5$
+\end_inset
+
+, 
+\begin_inset Formula $10\times2$
+\end_inset
+
+ and 
+\begin_inset Formula $20\times1$
+\end_inset
+
+ are some factorization of the integer 
+\begin_inset Formula $20$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We factor numbers every day without even realizing it.
+ For example, if you walk into a bank and ask to withdraw 
+\begin_inset Formula $\$120$
+\end_inset
+
+ from your account in denominations of 
+\begin_inset Formula $\$20$
+\end_inset
+
+, the teller should hand you 
+\begin_inset Formula $6$
+\end_inset
+
+, 
+\begin_inset Formula $\$20$
+\end_inset
+
+ bills.
+ A prudent person might then double check that 
+\begin_inset Formula $6\times20=120$
+\end_inset
+
+, i.e.
+ check that 
+\begin_inset Formula $6\times20$
+\end_inset
+
+ is a factorization of 
+\begin_inset Formula $120$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Just as we can factor numbers, we can also factor polynomials, i.e.
+ we can break them up into simpler factors, which when multiplied together
+ give us back the original expression.
+ In this document, we will focus on factoring quadratic polynomials.
+ Recall that a 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+quadratic polynomial
+\end_layout
+
+\end_inset
+
+ has the form
+\begin_inset Formula 
+\[
+ax^{2}+bx+c
+\]
+
+\end_inset
+
+Some quadratic polynomials are easy to factor.
+ For example 
+\begin_inset Formula $x^{2}-4$
+\end_inset
+
+ is a 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+difference of two squares
+\end_layout
+
+\end_inset
+
+, and so it can be factored as 
+\begin_inset Formula $\left(x+2\right)\left(x-2\right)$
+\end_inset
+
+ (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "exer:diff-of-two-squares"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ However, not all polynomials are so easy to factor.
+ In the following sections will will discuss and compare three methods for
+ factoring polynomials.
+ 
+\end_layout
+
+\begin_layout Section
+Factoring via the Grouping Method
+\end_layout
+
+\begin_layout Standard
+We often try to factor an expression 
+\begin_inset Formula $x^{2}+bx+c$
+\end_inset
+
+ by finding two numbers 
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ such that 
+\begin_inset Formula $\alpha\beta=c$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha+\beta=b$
+\end_inset
+
+.
+ In other words, we're trying to find two numbers 
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ which multiply to give 
+\begin_inset Formula $c$
+\end_inset
+
+ and add to give 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ We can then factor 
+\begin_inset Formula $x^{2}+bx+c=\left(x+\alpha\right)\left(x+\beta\right)$
+\end_inset
+
+ .
+ This is known as the 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+grouping method
+\end_layout
+
+\end_inset
+
+.
+ But why does the grouping method work? Working backwards from the factored
+ expression we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(x+\alpha\right)\left(x+\beta\right) & =x\left(x+\beta\right)+a\left(x+\beta\right)\\
+ & =x^{2}+\beta x+\alpha x+\alpha\beta\\
+ & =x^{2}+\left(\alpha+\beta\right)x+\alpha\beta\\
+ & =x^{2}+bx+c
+\end{align*}
+
+\end_inset
+
+Thus we see how by making the substitutions 
+\begin_inset Formula $b=\alpha+\beta$
+\end_inset
+
+ and 
+\begin_inset Formula $c=\alpha\beta$
+\end_inset
+
+, we can write 
+\begin_inset Formula $x^{2}+bx+c=\left(x+\alpha\right)\left(x+\beta\right)$
+\end_inset
+
+ .
+ One advantage of such a factorization is it allows us to easily find all
+ solutions (zeros) of this polynomial.
+ Unfortunately, factoring in this manner is not always possible as we will
+ see in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "exa:Factor-grouping-fail"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Examples
+\end_layout
+
+\begin_layout Example
+Factor 
+\begin_inset Formula $x^{2}-8x+16$
+\end_inset
+
+ using the grouping method.
+ 
+\end_layout
+
+\begin_layout Example
+We need to find two numbers that multiply to 
+\begin_inset Formula $16$
+\end_inset
+
+ and add to 
+\begin_inset Formula $-8$
+\end_inset
+
+.
+ We note that 
+\begin_inset Formula $\left(-4\right)^{2}=16$
+\end_inset
+
+ and 
+\begin_inset Formula $-4+-4=-8$
+\end_inset
+
+.
+ Thus we can factor 
+\begin_inset Formula $x^{2}-8x+16=\left(x-4\right)\left(x-4\right)=\left(x-4\right)^{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Factor 
+\begin_inset Formula $x^{2}-8x+15$
+\end_inset
+
+ using the grouping method.
+ 
+\end_layout
+
+\begin_layout Example
+We need to find two numbers that multiply to 
+\begin_inset Formula $15$
+\end_inset
+
+ and add to 
+\begin_inset Formula $-8$
+\end_inset
+
+.
+ We note that 
+\begin_inset Formula $-3\times-5=15$
+\end_inset
+
+ and 
+\begin_inset Formula $-3+-5=-8$
+\end_inset
+
+.
+ Thus we can factor 
+\begin_inset Formula $x^{2}-8x+15=\left(x-3\right)\left(x-5\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:Factor-grouping-fail"
+
+\end_inset
+
+Factor 
+\begin_inset Formula $x^{2}-8x+17$
+\end_inset
+
+ using the grouping method.
+ 
+\end_layout
+
+\begin_layout Example
+We need two numbers which multiply to 
+\begin_inset Formula $17$
+\end_inset
+
+ and add to 
+\begin_inset Formula $-8$
+\end_inset
+
+.
+ But 17 is a prime number, so the only pairs of integers that multiply to
+ give 
+\begin_inset Formula $17$
+\end_inset
+
+ are 
+\begin_inset Formula $(17,1)$
+\end_inset
+
+ and 
+\begin_inset Formula $(-17,-1)$
+\end_inset
+
+, which do not add to 
+\begin_inset Formula $-8$
+\end_inset
+
+.
+ We could try to guess two non-integers which multiply to 
+\begin_inset Formula $17$
+\end_inset
+
+ and sum to 
+\begin_inset Formula $-8$
+\end_inset
+
+, however this is very difficult, so we need to find a better method.
+ 
+\end_layout
+
+\begin_layout Section
+Factoring via Completing the Square
+\end_layout
+
+\begin_layout Definition
+In elementary algebra, 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+completing the square
+\end_layout
+
+\end_inset
+
+ is a technique for converting a quadratic polynomial of the form
+\begin_inset Formula 
+\[
+ax^{2}+bx+c
+\]
+
+\end_inset
+
+to 
+\begin_inset Formula 
+\[
+a\left(x+h\right)^{2}+k
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $k$
+\end_inset
+
+ is known as the 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+constant term
+\end_layout
+
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:complete-the-arbitrary-square"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we will show 
+\begin_inset Formula $k=\frac{c}{a}-\left(\frac{b}{2a}\right)^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:We-can-factor"
+
+\end_inset
+
+We can factor 
+\begin_inset Formula $x^{2}+bx+\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+ as 
+\begin_inset Formula $\left(x+\frac{b}{2}\right)^{2}$
+\end_inset
+
+.
+ That is to say:
+\begin_inset Formula 
+\[
+x^{2}+bx+\left(\frac{b}{2}\right)^{2}=\left(x+\frac{b}{2}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We can observe that 
+\begin_inset Formula $x^{2}+bx+\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+ does factor to 
+\begin_inset Formula $\left(x+\frac{b}{2}\right)^{2}$
+\end_inset
+
+ by factoring it using the grouping method.
+ So we want to find 
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ such that 
+\begin_inset Formula $\alpha\beta=\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha+\beta=b$
+\end_inset
+
+.
+ We observe that if 
+\begin_inset Formula $\alpha=\beta$
+\end_inset
+
+ then we can solve explicitly for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ (or 
+\begin_inset Formula $\beta$
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{align*}
+\alpha\beta & =\left(\frac{b}{2}\right)^{2}\\
+\alpha^{2} & =\left(\frac{b}{2}\right)^{2}\\
+\sqrt{\alpha^{2}} & =\sqrt{\left(\frac{b}{2}\right)^{2}}\\
+\alpha & =\frac{b}{2}
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\alpha=\beta=\frac{b}{2}$
+\end_inset
+
+.
+ We can also check that 
+\begin_inset Formula $\alpha=\beta=\frac{b}{2}$
+\end_inset
+
+ satisfies the equation 
+\begin_inset Formula $\alpha+\beta=b$
+\end_inset
+
+.
+ Sure enough 
+\begin_inset Formula 
+\begin{align*}
+\alpha+\beta & =\alpha+\alpha\\
+ & =2\alpha\\
+ & =2\frac{b}{2}\\
+ & =b
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:add-zero-trick"
+
+\end_inset
+
+The 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+add-zero
+\begin_inset Quotes erd
+\end_inset
+
+ trick
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+The 
+\begin_inset Quotes eld
+\end_inset
+
+add-zero
+\begin_inset Quotes erd
+\end_inset
+
+ trick is a useful algebraic tool that involves rewriting an expression
+ by adding 
+\begin_inset Formula $b$
+\end_inset
+
+ and 
+\begin_inset Formula $-b$
+\end_inset
+
+ to the same expression simultaneously.
+ Because 
+\begin_inset Formula $b+\left(-b\right)=0$
+\end_inset
+
+, using this trick does not change the value of the expression.
+ That is, for any numbers 
+\begin_inset Formula $a,b$
+\end_inset
+
+ it is true that easily.
+\begin_inset Formula 
+\begin{align*}
+a & =a+b-b\\
+ & =a+0\\
+ & =a
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Rewrite the function 
+\begin_inset Formula $ax^{2}+bx+c$
+\end_inset
+
+ using the 
+\begin_inset Quotes eld
+\end_inset
+
+add-zero
+\begin_inset Quotes erd
+\end_inset
+
+ trick with some number 
+\begin_inset Formula $d$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+ax^{2}+bx+c=ax^{2}+bx+c+d-d
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:adding-b/2"
+
+\end_inset
+
+An expression of the form 
+\begin_inset Formula $x^{2}+bx$
+\end_inset
+
+, can be factored into the form 
+\begin_inset Formula $\left(x+\frac{b}{2}\right)^{2}-\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+We use the 
+\begin_inset Quotes eld
+\end_inset
+
+add-zero
+\begin_inset Quotes erd
+\end_inset
+
+ trick (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:add-zero-trick"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) to simultaneously add 
+\begin_inset Formula $\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $-\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+ to the expression 
+\begin_inset Formula $x^{2}+bx$
+\end_inset
+
+ and then apply 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "prop:We-can-factor"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to factor the resulting expression.
+ 
+\begin_inset Formula 
+\begin{align*}
+x^{2}+bx & =x^{2}+bx+\left(\frac{b}{2}\right)^{2}-\left(\frac{b}{2}\right)^{2}\\
+ & =\left(x+\frac{b}{2}\right)^{2}-\left(\frac{b}{2}\right)^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+A 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+monic
+\end_layout
+
+\end_inset
+
+ quadratic polynomial is a quadratic polynomial 
+\begin_inset Formula $ax^{2}+bx+c$
+\end_inset
+
+ where 
+\begin_inset Formula $a=1$
+\end_inset
+
+.
+ I.e.
+ it has the form 
+\begin_inset Formula $x^{2}+bx+c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:completing-the-monic"
+
+\end_inset
+
+Let 
+\begin_inset Formula $p\left(x\right)$
+\end_inset
+
+ be a monic quadratic polynomial.
+ Then 
+\begin_inset Formula 
+\[
+x^{2}+bx+c=\left(x-h\right)^{2}+k
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $k=c-\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This is very similar to 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:adding-b/2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, except that we now have a constant term 
+\begin_inset Formula $c$
+\end_inset
+
+ in the initial equation.
+ However, everything else is the same and we see that 
+\begin_inset Formula $c$
+\end_inset
+
+ is eventually just absorbed into the constant term 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align*}
+x^{2}+bx+c & =x^{2}+bx+\left(\frac{b}{2}\right)^{2}-\left(\frac{b}{2}\right)^{2}+c\\
+ & =\left(x+\frac{b}{2}\right)^{2}-\left(\frac{b}{2}\right)^{2}+c\\
+ & =\left(x+\frac{b}{2}\right)^{2}+k^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Letting 
+\begin_inset Formula $k=c-\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+, the result is proved.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, we relax (i.e.
+ eliminate) the assumption that 
+\begin_inset Formula $a=1$
+\end_inset
+
+, so that 
+\begin_inset Formula $ax^{2}+bx+c$
+\end_inset
+
+ may represent an arbitrary quadratic polynomial.
+ In the next theorem, we show how to rewrite 
+\begin_inset Formula $ax^{2}+bx+c=0$
+\end_inset
+
+ by completing the square.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:complete-the-arbitrary-square"
+
+\end_inset
+
+By completing the square, we can factor an arbitrary quadratic polynomial
+ 
+\begin_inset Formula $ax^{2}+bx+c$
+\end_inset
+
+ as follows
+\begin_inset Formula 
+\[
+ax^{2}+bx+c=\left(x+\frac{b}{2a}\right)^{2}-k
+\]
+
+\end_inset
+
+with constant term 
+\begin_inset Formula $k=\frac{c}{a}-\left(\frac{b}{2a}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We begin by factoring out 
+\begin_inset Formula $a$
+\end_inset
+
+from the first two terms.
+ This simplifies the algebra somewhat vs if we had factored 
+\begin_inset Formula $a$
+\end_inset
+
+ out of all three terms.
+ We then use the 
+\begin_inset Quotes eld
+\end_inset
+
+add-zero
+\begin_inset Quotes erd
+\end_inset
+
+ trick to add 
+\begin_inset Formula $\left(\frac{b}{2a}\right)^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $-\left(\frac{b}{2a}\right)^{2}$
+\end_inset
+
+ to the expression.
+ We then then apply 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "prop:We-can-factor"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to factor the resulting expression, thus 
+\begin_inset Quotes eld
+\end_inset
+
+completing the square
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+ax^{2}+bx+c & =a\left[x^{2}+\frac{b}{a}x\right]+c\\
+ & =a\left[x^{2}+\frac{b}{a}x+\left(\frac{b}{2a}\right)^{2}-\left(\frac{b}{2a}\right)^{2}\right]+c\\
+ & =a\left(x+\frac{b}{2a}\right)^{2}-a\left(\frac{b}{2a}\right)^{2}+c\\
+ & =a\left(x+\frac{b}{2a}\right)^{2}-\frac{b^{2}}{4a}+c\\
+ & =a\left(x+\frac{b}{2a}\right)^{2}+k
+\end{align*}
+
+\end_inset
+
+where the constant term 
+\begin_inset Formula $k=-\frac{b^{2}}{4a}+c$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now that we have completed the square on an arbitrary quadratic polynomial
+ 
+\begin_inset Formula $ax^{2}+bx+c$
+\end_inset
+
+, we can solve this expression for 
+\begin_inset Formula $x$
+\end_inset
+
+, thereby obtaining the a formula for the solutions of an arbitrary quadratic
+ polynomial.
+ This is known as the 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+quadratic formula
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Theorem
+Quadratic Formula 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Quadratic-Formula"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $ax^{2}+bx+c$
+\end_inset
+
+ be an arbitrary quadratic formula.
+ Then the two solutions (or 
+\begin_inset Quotes eld
+\end_inset
+
+roots
+\begin_inset Quotes erd
+\end_inset
+
+) are given by 
+\begin_inset Formula 
+\[
+\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We take the factorization of an arbitrary quadratic polynomial 
+\begin_inset Formula $ax^{2}+bx+c$
+\end_inset
+
+ obtained in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:complete-the-arbitrary-square"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and solve for 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align*}
+a\left(x+\frac{b}{2a}\right)^{2}-\frac{b^{2}}{4a}+c & =0\\
+a\left(x+\frac{b}{2a}\right)^{2} & =\frac{b^{2}}{4a}-c\\
+\left(x+\frac{b}{2a}\right)^{2} & =\frac{b^{2}}{4a^{2}}-\frac{c}{a}\\
+\sqrt{\left(x+\frac{b}{2a}\right)^{2}} & =\sqrt{\frac{b^{2}}{4a^{2}}-\frac{c}{a}}\\
+x+\frac{b}{2a} & =\sqrt{\frac{b^{2}}{4a^{2}}-\frac{c}{a}}\\
+x & =\sqrt{\frac{b^{2}}{4a^{2}}-\frac{c}{a}}-\frac{b}{2a}\\
+ & =\sqrt{\frac{b^{2}-4ac}{4a^{2}}}-\frac{b}{2a}\\
+ & =\frac{\sqrt{b^{2}-4ac}}{2a}-\frac{b}{2a}\\
+ & =\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Examples
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Rewrite the function 
+\begin_inset Formula $x^{2}+6x+87$
+\end_inset
+
+ by completing the square and find all solutions.
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\begin{align*}
+x^{2}+6x+87 & =x^{2}+6x+\text{\left(\frac{6}{2}\right)}^{2}-\text{\left(\frac{6}{2}\right)}^{2}+87\\
+ & =x^{2}+6x+9-9+87\\
+ & =\left(x+3\right)^{2}+78
+\end{align*}
+
+\end_inset
+
+To find the solutions set this expression equal to zero.
+ 
+\begin_inset Formula 
+\begin{align*}
+\left(x+3\right)^{2}+78 & =0\\
+x+3 & =\sqrt{-78}\\
+x & =-3\pm\sqrt{-78}\\
+ & =-3\pm i\sqrt{78}
+\end{align*}
+
+\end_inset
+
+Note that this function has two complex roots.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Rewrite 
+\begin_inset Formula $x^{2}-10x+17$
+\end_inset
+
+ by completing the square and find the solutions:
+\begin_inset Formula 
+\begin{align*}
+x^{2}-10x+17 & =x^{2}-10x+25-25+17\\
+ & =\left(x-5\right)^{2}-8
+\end{align*}
+
+\end_inset
+
+We find the solutions by setting this expression equal to zero
+\begin_inset Formula 
+\begin{align*}
+\left(x-5\right)^{2}-8 & =0\\
+\left(x-5\right)^{2} & =8\\
+\sqrt{\left(x-5\right)^{2}} & =\sqrt{8}\\
+x-5 & =\sqrt{8}\\
+ & =\sqrt{4\cdot2}\\
+ & =\pm2\sqrt{2}\\
+x & =5\pm2\sqrt{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Rewrite the function by completing the square and find all solutions.
+\end_layout
+
+\begin_layout Example
+Since 
+\begin_inset Formula $a=10$
+\end_inset
+
+, this is not a monic polynomial, however we can convert it to a monic polynomia
+l by factoring out 10 from all terms containing 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\begin{align*}
+10x^{2}-30x-8 & =10\left(x^{2}-3x\right)-8
+\end{align*}
+
+\end_inset
+
+We can now complete the square on the monic polynomial 
+\begin_inset Formula $x^{2}-3x$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+10\left[x^{2}-3x\right]-8 & =10\left[x^{2}-3x+\left(\frac{3}{2}\right)^{2}-\left(\frac{3}{2}\right)^{2}\right]-8\\
+ & =10\left[\left(x-\frac{3}{2}\right)^{2}-\left(\frac{3}{2}\right)^{2}\right]-8\\
+ & =10\left(x-\frac{3}{2}\right)^{2}-10\left(\frac{3}{2}\right)^{2}-8\\
+ & =10\left(x-\frac{3}{2}\right)^{2}-\frac{45}{2}-\frac{16}{2}\\
+ & =10\left(x-\frac{3}{2}\right)^{2}-\frac{61}{2}
+\end{align*}
+
+\end_inset
+
+To find the solutions set this expression equal to zero:
+\begin_inset Formula 
+\begin{align*}
+10\left[\left(x-\frac{3}{2}\right)^{2}-\frac{61}{20}\right] & =0\\
+\left(x-\frac{3}{2}\right)^{2} & =\frac{61}{20}\\
+x & =\frac{3}{2}\pm\sqrt{\frac{61}{20}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Completing the Square as a Graph Translation
+\end_layout
+
+\begin_layout Subsection
+Graph Translations Review
+\end_layout
+
+\begin_layout Standard
+In this section we briefly review the translations of graph of a function
+ 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ so that we may interpret the expression which results of completing the
+ square.
+ Recall that there are two kinds of graph translations, shifting and scaling.
+ We may shift a graph horizontally or vertically, and we may scale a graph
+ horizontally or vertically, giving 4 fundamental graph translations.
+ 
+\end_layout
+
+\begin_layout Enumerate
+To shift the graph of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ up, we add a positive number 
+\begin_inset Formula $k$
+\end_inset
+
+ to 
+\begin_inset Formula $f(x)$
+\end_inset
+
+, and to shift it down we add a negative number.
+ Thus vertically shifting 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ by 
+\begin_inset Formula $k$
+\end_inset
+
+ takes the form 
+\begin_inset Formula $f(x)+k$
+\end_inset
+
+, with the direction of movement (up or down) depending on the sign of 
+\begin_inset Formula $k$
+\end_inset
+
+ (i.e.
+ if 
+\begin_inset Formula $k$
+\end_inset
+
+ is positive or negative).
+\end_layout
+
+\begin_layout Enumerate
+To stretch or shrink the graph of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ vertically by a factor of 
+\begin_inset Formula $a$
+\end_inset
+
+, we simply multiply 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $|a|>1$
+\end_inset
+
+ the graph is vertically stretched, and if 
+\begin_inset Formula $1>|a|$
+\end_inset
+
+ the graph shrinks vertically.
+ If 
+\begin_inset Formula $a<0$
+\end_inset
+
+, the graph is flipped or reflected about the 
+\begin_inset Formula $x$
+\end_inset
+
+-axis and stretched by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ In particular, if we encounter 
+\begin_inset Formula $-af\left(x\right)$
+\end_inset
+
+, we might think of it as 
+\begin_inset Formula $-1\cdot af\left(x\right)$
+\end_inset
+
+, so it is clear that 
+\begin_inset Formula $-af\left(x\right)$
+\end_inset
+
+ represents both flipping and vertically stretching/shrinking of 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The translation 
+\begin_inset Formula $f(x+k)$
+\end_inset
+
+ will move the 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ to the left or right depending if the sign of 
+\begin_inset Formula $k$
+\end_inset
+
+ is positive or negative.
+ 
+\end_layout
+
+\begin_layout Enumerate
+We can scale 
+\begin_inset Formula $f$
+\end_inset
+
+ horizontally, that is make 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ narrower or wider, by multiplying 
+\begin_inset Formula $x$
+\end_inset
+
+ by a constant.
+ In particular 
+\begin_inset Formula $f\left(ax\right)$
+\end_inset
+
+ becomes narrower if 
+\begin_inset Formula $|a|>1$
+\end_inset
+
+, wider if 
+\begin_inset Formula $|a|>0$
+\end_inset
+
+, and if 
+\begin_inset Formula $a<0$
+\end_inset
+
+, 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ is flipped across the 
+\begin_inset Formula $y$
+\end_inset
+
+-axis.
+ 
+\end_layout
+
+\begin_layout Standard
+Many students often have trouble remembering which direction the graph moves,
+ when we shift the graph horizontally so we will illustrate with an example.
+ Consider the graph of 
+\begin_inset Formula $f(x)=x^{2}$
+\end_inset
+
+.
+ We know what this graph looks like; it is a parabola opening upwards with
+ one root at 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+ Now consider 
+\begin_inset Formula $f(x+3)=(x+3)^{2}$
+\end_inset
+
+, where is its root? I.e, for what value of 
+\begin_inset Formula $x$
+\end_inset
+
+ is is 
+\begin_inset Formula $f(x+3)=0$
+\end_inset
+
+? Well, when 
+\begin_inset Formula $x=-3$
+\end_inset
+
+, 
+\begin_inset Formula $f\left(x+3\right)=\left(-3+3\right)^{2}=0^{2}=0$
+\end_inset
+
+.
+ So now the root is at 
+\begin_inset Formula $-3$
+\end_inset
+
+, so changing 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ to 
+\begin_inset Formula $f(x+3)$
+\end_inset
+
+ has moved 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ three units to the left.
+ If we repeat this experiment, we will see that 
+\begin_inset Formula $f\left(x-3\right)$
+\end_inset
+
+ has a zero at 
+\begin_inset Formula $x=3$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $f\left(x-3\right)$
+\end_inset
+
+ moves 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ three units to the right.
+ We summarize the basic graph translations below in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:Graph-Transformations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Action
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Algebra
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Note
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vertical Shift
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f\left(x\right)+k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Direction of shift 
+\begin_inset Formula $\left(\uparrow,\downarrow\right)$
+\end_inset
+
+ if 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\begin_inset Formula $\left(+,-\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vertical Scaling (Stretch/Shrink)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $af\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stretch if 
+\begin_inset Formula $a>1$
+\end_inset
+
+, shrink if 
+\begin_inset Formula $0<a<1$
+\end_inset
+
+, flip over 
+\begin_inset Formula $x$
+\end_inset
+
+-axis when 
+\begin_inset Formula $a<0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Horizontal Shift
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f\left(x+k\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Shift 
+\begin_inset Formula $\leftarrow$
+\end_inset
+
+ if 
+\begin_inset Formula $k$
+\end_inset
+
+ positive, shift 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ if 
+\begin_inset Formula $k$
+\end_inset
+
+ is negative
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Horizontal Scaling
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f\left(ax\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Narrower if 
+\begin_inset Formula $a>1$
+\end_inset
+
+, wider if 
+\begin_inset Formula $a<1$
+\end_inset
+
+, flip over 
+\begin_inset Formula $y$
+\end_inset
+
+-axis when 
+\begin_inset Formula $a<0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Graph-Transformations"
+
+\end_inset
+
+Graph Transformations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+We often apply multiple translations to a single function.
+ For example, we might scale 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ vertically and horizontally, or we might flip it vertically and shift it
+ horizontally.
+ We might even apply all four translations to a single graph.
+ How do we approach finding the shape of the translated graph? The key insight
+ is that each translation can be applied one by one, in any order and the
+ result will be the same.
+ For example, flipping the graph vertically, then shifting it horizontally
+ is the same as shifting it and then flipping it.
+ Thus we may break apart a complex translation into a composition of simple
+ translations and compute the simple translations in any way we like.
+ We will take advantage of this property in the next section.
+ 
+\end_layout
+
+\begin_layout Subsection
+Application to Completing the Square
+\end_layout
+
+\begin_layout Standard
+Keeping in mind what we have learned about graph translations, what does
+ 
+\begin_inset Formula $a\left(x+h\right)^{2}+k$
+\end_inset
+
+ look like relative to 
+\begin_inset Formula $x^{2}$
+\end_inset
+
+? In other words, if 
+\begin_inset Formula $f(x)=x^{2}$
+\end_inset
+
+, how does 
+\begin_inset Formula $af\left(x+h\right)+k$
+\end_inset
+
+ transform it? It is:
+\end_layout
+
+\begin_layout Enumerate
+Vertically stretched/shrunk by 
+\begin_inset Formula $a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Horizontally shifted to the left by 
+\begin_inset Formula $h$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vertically shifted by 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Specifically, since 
+\begin_inset Formula $f(x)=x^{2}$
+\end_inset
+
+ has a vertex of 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+, 
+\begin_inset Formula $af\left(x+h\right)+k$
+\end_inset
+
+ has its vertex at 
+\begin_inset Formula $\left(-h,k\right)$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Example
+Consider 
+\begin_inset Formula $f\left(x\right)=8x^{2}-64x+16$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Rewrite 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by completing the square
+\begin_inset Formula 
+\begin{align*}
+-8x^{2}-64x+16 & =-8\left[x^{2}+8x\right]+16\\
+ & =-8\left[x^{2}+8x+16-16\right]+16\\
+ & =-8\left[\left(x+4\right)^{2}-16\right]+16\\
+ & =-8\left(x+4\right)^{2}+8\cdot16+16\\
+ & =-8\left(x+4\right)^{2}+9\cdot16\\
+ & =-8\left(x+4\right)^{2}+144
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Describe 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ in terms of graph translations from 
+\begin_inset Formula $g\left(x\right)=x^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+This is the graph of 
+\begin_inset Formula $x^{2}$
+\end_inset
+
+, but flipped over the 
+\begin_inset Formula $x$
+\end_inset
+
+-axis (by the 
+\begin_inset Formula $-1$
+\end_inset
+
+ in the 
+\begin_inset Formula $-8$
+\end_inset
+
+), stretched vertically by 
+\begin_inset Formula $8$
+\end_inset
+
+, vertically shifted up by 
+\begin_inset Formula $144$
+\end_inset
+
+, and moved to the left by 4
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Find the vertex of 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The vertex is at 
+\begin_inset Formula $\left(-4,144\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Find the roots of 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+-8\left(x+4\right)^{2}+144 & =0\\
+\left(x+4\right)^{2} & =\frac{-144}{-8}\\
+x & =-4\pm\sqrt{18}\\
+ & =-4\pm\sqrt{2\cdot3^{2}}\\
+ & =-4\pm3\sqrt{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Comparing Various Factoring Methods
+\end_layout
+
+\begin_layout Standard
+As we have just seen, completing the square has the advantage of allowing
+ us to directly read off the coordinates of the vertex of a quadratic polynomial.
+ These coordinates represent the maximum or minimum (
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+extremum
+\end_layout
+
+\end_inset
+
+) of the quadratic polynomial, and the vertical line through the 
+\begin_inset Formula $x$
+\end_inset
+
+-coordinate represents the axis of symmetry.
+ The downside is that if we want to find the roots of the polynomial, we
+ must solve for them.
+ This is in contrast with the grouping method and quadratic formula which
+ provide the roots of the graph, but require us to solve for the extrema
+ of the polynomial.
+ 
+\end_layout
+
+\begin_layout Standard
+While the grouping method is probably the simplest and most familiar factoring
+ method, it is important to remember that there are many quadratic polynomials
+ which cannot be factored using the grouping method.
+ In contrast, both completing the square and using the quadratic formula
+ will always work.
+ Of course, in order to use the quadratic formula, one must first memorize
+ it, which can difficult for some students.
+ 
+\end_layout
+
+\begin_layout Standard
+We summarize our comparison of the three factoring methods in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:Advantages-of-Various"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Each has its advantages and disadvantages, and students should be proficient
+ in using all three factoring methods.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Method
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Shows
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Must Solve For
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Always Works
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Difficulty
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Completing the Square
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Extremum
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Roots
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Medium
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Grouping Method
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Roots
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Extremum
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Easy
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Quadratic Formula
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Roots
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Extremum
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Medium
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Advantages-of-Various"
+
+\end_inset
+
+Advantages of Various Factoring Methods
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Geometric Visualization
+\end_layout
+
+\begin_layout Standard
+Completing the square has a nice geometric visualization shown in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Visualization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Notice how 
+\begin_inset Formula 
+\[
+x^{2}+\frac{b}{2}x+\frac{b}{2}x=x^{2}+bx
+\]
+
+\end_inset
+
+ which represents represents the sum of the red and green rectangles, almost
+ forms a perfect square with sides 
+\begin_inset Formula $x+\frac{b}{2}$
+\end_inset
+
+.
+ The missing part of the perfect square, shown in purple, has an area of
+ 
+\begin_inset Formula $\left(\frac{b}{2}\right)^{2}.$
+\end_inset
+
+ By adding the missing 
+\begin_inset Formula $\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+ to 
+\begin_inset Formula $x^{2}+bx$
+\end_inset
+
+ we obtain a perfect square with sides 
+\begin_inset Formula $x+\frac{b}{2}$
+\end_inset
+
+ and area 
+\begin_inset Formula 
+\[
+\left(x+\frac{b}{2}\right)^{2}=x^{2}+bx+\left(\frac{b}{2}\right)^{2}
+\]
+
+\end_inset
+
+Keep in mind that when completing the square, we are able add this extra
+ 
+\begin_inset Formula $\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+ to the 
+\begin_inset Quotes eld
+\end_inset
+
+almost square
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $x^{2}+bx$
+\end_inset
+
+ because we simultaneously subtract 
+\begin_inset Formula $\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+ as per the 
+\begin_inset Quotes eld
+\end_inset
+
+add-zero
+\begin_inset Quotes erd
+\end_inset
+
+ trick (see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:add-zero-trick"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:adding-b/2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diagrams/fig-completing_the_square_no_grid.pdf
+	scale 120
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Visualization"
+
+\end_inset
+
+Adding 
+\begin_inset Formula $\left(\frac{b}{2}\right)^{2}$
+\end_inset
+
+ to 
+\begin_inset Formula $x^{2}+bx$
+\end_inset
+
+ creates a perfect square 
+\begin_inset Formula $x^{2}+bx+\left(\frac{b}{2}\right)^{2}=\left(x+\frac{b}{2}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% start counting the exercises from #1
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{thm}{0}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Exercises
+\end_layout
+
+\begin_layout Exercise
+\begin_inset CommandInset label
+LatexCommand label
+name "exer:diff-of-two-squares"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f\left(x\right)=x^{2}-a^{2}$
+\end_inset
+
+ be a difference of two squares.
+ Show that 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ can be factored as 
+\begin_inset Formula $\left(x+a\right)\left(x-a\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+By distributing 
+\begin_inset Formula $\left(x-a\right)$
+\end_inset
+
+ over 
+\begin_inset Formula $\left(x+a\right)$
+\end_inset
+
+, we obtain
+\begin_inset Formula 
+\begin{align*}
+\left(x+a\right)\left(x-a\right) & =\left(x\left(x-a\right)+a\left(x-a\right)\right)\\
+ & =x^{2}-ax+ax-a^{2}\\
+ & =x^{2}-a^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $f\left(x\right)=x^{2}+13x+42$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Attempt to factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ using the grouping method and find the roots.
+ If the grouping method cannot be used, explain why.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by completing the square and find the roots.
+\end_layout
+
+\begin_layout Enumerate
+Factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ using the quadratic formula and find the roots.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+Let 
+\begin_inset Formula $f\left(x\right)=x^{2}+13x+42$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+To apply the grouping method, we need to find a pair of numbers which add
+ to 13 and multiply to 42.
+ Observe that 
+\begin_inset Formula $7,6$
+\end_inset
+
+ satisfies these requirements.
+ Therefore by the grouping method, we may factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $\left(x+7\right)\left(x+6\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+To complete the square...
+\end_layout
+
+\begin_layout Enumerate
+To use the quadratic method...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $f\left(x\right)=-3x^{2}-9x-22$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Attempt to factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ using the grouping method and find the roots.
+ If the grouping method cannot be used, explain why.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by completing the square and find the roots.
+\end_layout
+
+\begin_layout Enumerate
+Factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ using the quadratic formula and find the roots.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $f\left(x\right)=10x^{2}+64x-16$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Attempt to factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ using the grouping method and find the roots.
+ If the grouping method cannot be used, explain why.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by completing the square and find the roots.
+\end_layout
+
+\begin_layout Enumerate
+Factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ using the quadratic formula and find the roots.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $f\left(x\right)=10x^{2}+20x+12$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Attempt to factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ using the grouping method and find the roots.
+ If the grouping method cannot be used, explain why.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by completing the square and find the roots.
+\end_layout
+
+\begin_layout Enumerate
+Factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ using the quadratic formula and find the roots.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $f\left(x\right)=2x^{2}+8x+15$
+\end_inset
+
+.
+ Complete the square in order to express 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ as a graph translation from 
+\begin_inset Formula $g\left(x\right)=x^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $f\left(x\right)=-4x^{2}+8x+10$
+\end_inset
+
+.
+ Complete the square in order to express 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ as a graph translation from 
+\begin_inset Formula $g\left(x\right)=x^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $g\left(x\right)=2f\left(x+3\right)+7$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ is a translation of 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+, find a inverse translation 
+\begin_inset Formula $g^{-1}\left(x\right)$
+\end_inset
+
+ of 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $g^{-1}\left(g\left(x\right)\right)=f\left(x\right)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $g$
+\end_inset
+
+ is not a translation of 
+\begin_inset Formula $f$
+\end_inset
+
+, explain why not.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $g\left(x\right)=-6xf\left(x+3\right)+2$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ is a translation of 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+, find a inverse translation 
+\begin_inset Formula $g^{-1}\left(x\right)$
+\end_inset
+
+ of 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $g^{-1}\left(g\left(x\right)\right)=f\left(x\right)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $g$
+\end_inset
+
+ is not a translation of 
+\begin_inset Formula $f$
+\end_inset
+
+, explain why not.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $f\left(x\right)=-7x^{2}+14x-32$
+\end_inset
+
+.
+ Rewrite 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by completing the square.
+ Draw a visualization of completing the square as in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Visualization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $f\left(x\right)=2x^{2}+11x+17$
+\end_inset
+
+.
+ Rewrite
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by completing the square.
+ Draw a visualization of completing the square as in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Visualization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $f\left(x\right)=x^{2}+bx+p$
+\end_inset
+
+ be a quadratic binomial where 
+\begin_inset Formula $p$
+\end_inset
+
+ is a prime number.
+ For what values of 
+\begin_inset Formula $b$
+\end_inset
+
+ can we factor 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ using the grouping method?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Solutions
+inverted 0
+status open
+
+\begin_layout Solution*
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,23 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc, intersections, math}
+
+\begin{document}
+	\begin{tikzpicture}[scale=4, mystyle/.style={circle,fill}]
+
+
+	\draw[ultra thick,red,domain=-3:3,smooth] plot (\x,{sin(\x r)}) node[right] {$f(x)$};
+
+	\draw[ultra thick, blue, ->] (pi/2+.1,2) -- (pi/2+.1,-1.95) node[midway, above, fill=white] {Flip about $x$ axis};
+	\draw[ultra thick, cyan, ->] (pi/2,1) -- (pi/2,2) node[midway, above, fill=white] {Shift vertically by $1$};
+
+
+
+	\draw[ultra thick,cyan,domain=-pi:pi,smooth] plot (\x,{sin(\x r)+1}) node[right] {$f(x)+1$};
+	\draw[ultra thick,blue,domain=-pi:pi,smooth] plot (\x,{-1*sin(\x r)-1}) node[right] {$-(f(x)+1)$};
+
+	\input{fig-Graph-Translations-Background.tex}
+
+	\end{tikzpicture}
+
+
+\end{document}

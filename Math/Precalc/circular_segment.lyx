@@ -1,0 +1,1452 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{refstyle}
+\usepackage{MnSymbol}
+
+\newref{example}{name=example~}
+\newref{exercise}{name=exercise~}
+\end_preamble
+\use_default_options true
+\begin_modules
+logicalmkup
+theorems-ams
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+Format 66
+InsetLayout Flex:definition
+    LyxType               charstyle
+    LabelString           definitinon
+    LatexType             command
+    LatexName             definition
+    Font
+      Color	cyan
+      Series	Bold
+    EndFont
+    Preamble
+    \newcommand{\definition}[1]{\textcolor{cyan}{\textbf{\index{#1}#1}}}
+    EndPreamble
+    InToc                 true
+    HTMLTag               code
+	ResetsFont true
+End
+\end_local_layout
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Area of a Circular Segment
+\end_layout
+
+\begin_layout Abstract
+We examine several different problems relating to sectors and segments of
+ the unit circle.
+ We examine solutions using geometry and calculus and carefully illustrate
+ the underlying geometry.
+\end_layout
+
+\begin_layout Definition
+Circular Sector
+\end_layout
+
+\begin_layout Definition
+A 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+circular sector
+\end_layout
+
+\end_inset
+
+, also known as circle sector or disk sector (symbol: 
+\begin_inset Formula $\ensuremath{\downslice}$
+\end_inset
+
+), is the portion of a disk (a closed region bounded by a circle) enclosed
+ by two radii and an arc, where the smaller area is known as the minor sector
+ and the larger being the major sector.
+ In the diagram, 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+central angle
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $r$
+\end_inset
+
+ the radius of the circle, and 
+\begin_inset Formula $L$
+\end_inset
+
+ is the arc length of the minor sector.
+ 
+\end_layout
+
+\begin_layout Definition
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diagrams/fig-sector of a circle.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circular Sector 
+\begin_inset Formula $\ensuremath{\downslice}AOB$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Calculate the arc length 
+\begin_inset Formula $L$
+\end_inset
+
+ of sector 
+\begin_inset Formula $\ensuremath{\downslice}AOB$
+\end_inset
+
+.
+ I.e.
+ calculate the distance one would have to travel along the circle to get
+ from 
+\begin_inset Formula $A$
+\end_inset
+
+ to 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Solution*
+The arc length of the whole circle (i.e.
+ the circumference) is 
+\begin_inset Formula $2\pi r$
+\end_inset
+
+, which corresponds to a sector with central angle 
+\begin_inset Formula $\theta=2\pi$
+\end_inset
+
+.
+ The arc length 
+\begin_inset Formula $L$
+\end_inset
+
+ corresponds to angle 
+\begin_inset Formula $\theta$
+\end_inset
+
+ representing 
+\begin_inset Formula $\frac{\theta}{2\pi}$
+\end_inset
+
+ of the total radians of the circle.
+ Setting up the proportion:
+\begin_inset Formula 
+\begin{align*}
+\frac{2\pi r}{2\pi} & =\frac{L}{\theta}\\
+r\theta & =L
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+Equivalently, we might observe that if the whole circle has arc length 
+\begin_inset Formula $2\pi r$
+\end_inset
+
+, and the sector 
+\begin_inset Formula $\ensuremath{\downslice}AOB$
+\end_inset
+
+ represents 
+\begin_inset Formula $\frac{\theta}{2\pi}$
+\end_inset
+
+ of the circle, then the length of 
+\begin_inset Formula $\ensuremath{\downslice}AOB$
+\end_inset
+
+ is 
+\begin_inset Formula $\frac{\theta}{2\pi}$
+\end_inset
+
+ of the perimeter of the whole circle.
+ Thus we compute
+\begin_inset Formula 
+\[
+2\pi r\cdot\frac{\theta}{2\pi}=r\theta=L
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Calculate the area of sector 
+\begin_inset Formula $\ensuremath{\downslice}AOB$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:area-of-sector"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+The full circle has area 
+\begin_inset Formula $\pi r^{2}$
+\end_inset
+
+ and corresponds to a sector with central angle 
+\begin_inset Formula $\theta=2\pi$
+\end_inset
+
+.
+ Our sector 
+\begin_inset Formula $\ensuremath{\downslice}AOB$
+\end_inset
+
+ has central angle 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and unknown area 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Setting up the proportion we have
+\begin_inset Formula 
+\begin{align*}
+\frac{\pi r^{2}}{2\pi} & =\frac{x}{\theta}\\
+\frac{\theta r^{2}}{2} & =x\\
+\end{align*}
+
+\end_inset
+
+Equivalently, we might observe that if the whole disk has area 
+\begin_inset Formula $\pi r^{2}$
+\end_inset
+
+, and the sector represents 
+\begin_inset Formula $\frac{\theta}{2\pi}$
+\end_inset
+
+ of the disk, then its area is 
+\begin_inset Formula $\frac{\theta}{2\pi}$
+\end_inset
+
+ of the area of the whole disk.
+ Thus we compute
+\begin_inset Formula 
+\begin{align*}
+x= & \pi r^{2}\cdot\frac{\theta}{2\pi}\\
+= & \frac{\theta r^{2}}{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Circular Segment
+\end_layout
+
+\begin_layout Definition
+In geometry, a 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+circular segment
+\end_layout
+
+\end_inset
+
+, also known as a 
+\begin_inset Flex definition
+status open
+
+\begin_layout Plain Layout
+disk segment
+\end_layout
+
+\end_inset
+
+, is a region of a disk which is "cut off" from the rest of the disk by
+ a secant or a chord.
+ More formally, a circular segment is a region of two-dimensional space
+ that is bounded by a circular arc (of less than π radians by convention)
+ and by the circular chord connecting the endpoints of the arc.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diagrams/fig-CircularSegment.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circular Segment 
+\begin_inset Formula $\aleph$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Calculate the area of the circular segment 
+\begin_inset Formula $\aleph$
+\end_inset
+
+, 
+\begin_inset Formula $A(\aleph)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:area-of-segment"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+Using our answer to problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:area-of-sector"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we know the area of sector 
+\begin_inset Formula $\ensuremath{\downslice}AOB$
+\end_inset
+
+ is 
+\begin_inset Formula $r^{2}\frac{\theta}{2}$
+\end_inset
+
+.
+ If we subtract the area of the triangle 
+\begin_inset Formula $\triangle AOB$
+\end_inset
+
+ from 
+\begin_inset Formula $\ensuremath{\downslice}AOB$
+\end_inset
+
+, we obtain the area of 
+\begin_inset Formula $\aleph$
+\end_inset
+
+.
+ By converting to polar coordinates, we see that 
+\begin_inset Formula $\triangle AOB$
+\end_inset
+
+ has length 
+\begin_inset Formula $r$
+\end_inset
+
+ and height 
+\begin_inset Formula $r\sin\theta$
+\end_inset
+
+.
+ Therefore the area of 
+\begin_inset Formula $\triangle AOB$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\frac{r^{2}\sin\theta}{2}$
+\end_inset
+
+.
+ Therefore:
+\begin_inset Formula 
+\begin{align*}
+A(\aleph) & =\frac{r^{2}\theta}{2}-\frac{r^{2}\sin\theta}{2}\\
+ & =\frac{r^{2}}{2}\left(\theta-\sin\theta\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diagrams/fig-CircularSegment_1.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Using polar coordinates to solve problem 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:Calculate-the-length"
+
+\end_inset
+
+Calculate the length of 
+\begin_inset Formula $\overline{AB}$
+\end_inset
+
+, which we will denote by 
+\begin_inset Formula $\left|AB\right|$
+\end_inset
+
+.
+ Use the result to determine what values of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ make 
+\begin_inset Formula $\left|AB\right|<r$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Solution*
+For simplicity, label 
+\begin_inset Formula $A=(r\cos\theta,r\sin\theta)$
+\end_inset
+
+, 
+\begin_inset Formula $O=(0,0)$
+\end_inset
+
+, 
+\begin_inset Formula $B=(r,0)$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{align*}
+\left|AB\right| & =\left|\left|A-B\right|\right|\\
+ & =\sqrt{\left(r\cos\theta-r\right)^{2}+\left(r\sin\theta-0\right)^{2}}\\
+ & =\sqrt{\left(r\cos\theta-r\right)^{2}+r^{2}\sin^{2}\theta}\\
+ & =\sqrt{\left(r\cos\theta-r\right)\left(r\cos\theta-r\right)+r^{2}\sin^{2}\theta}\\
+ & =\sqrt{r^{2}\cos^{2}\theta-2r^{2}\cos\theta+r^{2}+r^{2}\sin^{2}\theta}\\
+ & =\sqrt{r^{2}\cos^{2}\theta+r^{2}\sin^{2}\theta-2r^{2}\cos\theta+r^{2}}\\
+ & =\sqrt{r^{2}\left(\cos^{2}\theta+\sin^{2}\theta\right)-2r^{2}\cos\theta+r^{2}}\\
+ & \overset{\alpha}{=}\sqrt{r^{2}\left(1\right)-2r^{2}\cos\theta+r^{2}}\\
+ & =\sqrt{r^{2}-2r^{2}\cos\theta+r^{2}}\\
+ & =\sqrt{2r^{2}-2r^{2}\cos\theta}\\
+ & =\sqrt{2r^{2}\left(1-\cos\theta\right)}\\
+ & =r\sqrt{2\left(1-\cos\theta\right)}\\
+ & \overset{\beta}{=}2r\sin\frac{\theta}{2}
+\end{align*}
+
+\end_inset
+
+where equation 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ uses the Pythagorean identity, and equation 
+\begin_inset Formula $\beta$
+\end_inset
+
+ uses the half-angle identity for 
+\begin_inset Formula $\sin\frac{\theta}{2}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\left|AB\right|=\left|\left|A-B\right|\right|=2r\sin\frac{\theta}{2}$
+\end_inset
+
+, we need to find when 
+\begin_inset Formula $2r\sin\frac{\theta}{2}<r$
+\end_inset
+
+.
+ Solving for 
+\begin_inset Formula $\theta$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align*}
+2r\sin\frac{\theta}{2} & <r\\
+\sin\frac{\theta}{2} & <\frac{1}{2}\\
+\arcsin\left(\sin\frac{\theta}{2}\right) & <\arcsin\left(\frac{1}{2}\right)\\
+\frac{\theta}{2} & <\frac{\pi}{6}\\
+\theta & <\frac{\pi}{3}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Use the Law of Cosines to calculate 
+\begin_inset Formula $\left|AB\right|$
+\end_inset
+
+.
+ Compare the result to that calculated in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "prob:Calculate-the-length"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Solution*
+Recall the Law of Cosines states that if 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is the angle between sides 
+\begin_inset Formula $a,b$
+\end_inset
+
+ and opposite from 
+\begin_inset Formula $c$
+\end_inset
+
+ then
+\begin_inset Formula 
+\[
+c^{2}=a^{2}+b^{2}−2ab\cos\gamma
+\]
+
+\end_inset
+
+In our case 
+\begin_inset Formula $a=b=r$
+\end_inset
+
+, which simplifies this expression to
+\begin_inset Formula 
+\begin{align*}
+c^{2} & =2r^{2}−2r^{2}\cos\gamma\\
+c & =\sqrt{2r^{2}\left(1-\cos\gamma\right)}\\
+ & =r\sqrt{2\left(1-\cos\gamma\right)}\\
+ & \overset{\beta}{=}2r\sin\frac{\theta}{2}\\
+ & =\left|AB\right|
+\end{align*}
+
+\end_inset
+
+where equation 
+\begin_inset Formula $\beta$
+\end_inset
+
+ uses the half-angle identity for 
+\begin_inset Formula $\sin\frac{\theta}{2}$
+\end_inset
+
+.
+ This is the same expression as we obtained in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "prob:Calculate-the-length"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ We observe that we have proved a special case of the Law of Cosines, namely
+ that for an isosceles triangle.
+ 
+\end_layout
+
+\begin_layout Problem
+Prove the Law of Cosines using the distance formula.
+\end_layout
+
+\begin_layout Solution*
+Let 
+\begin_inset Formula $A=\left(r\cos\theta,r\sin\theta\right)$
+\end_inset
+
+, 
+\begin_inset Formula $O=(0,0)$
+\end_inset
+
+, 
+\begin_inset Formula $B=(a,0)$
+\end_inset
+
+.
+ Note that by having 
+\begin_inset Formula $B=\left(a,0\right)$
+\end_inset
+
+ instead of 
+\begin_inset Formula $B=\left(r,0\right)$
+\end_inset
+
+ we have relaxed the assumption that 
+\begin_inset Formula $B$
+\end_inset
+
+ lies on the same circle as 
+\begin_inset Formula $A$
+\end_inset
+
+ so that we can give a general proof.
+ 
+\begin_inset Formula 
+\begin{align*}
+\left|AB\right| & =\left|\left|A-B\right|\right|\\
+ & =\sqrt{\left(r\cos\theta-a\right)^{2}+\left(r\sin\theta-0\right)^{2}}\\
+ & =\sqrt{\left(r\cos\theta-a\right)^{2}+r^{2}\sin^{2}\theta}\\
+ & =\sqrt{\left(r\cos\theta-a\right)\left(r\cos\theta-a\right)+r^{2}\sin^{2}\theta}\\
+ & =\sqrt{r^{2}\cos^{2}\theta-2ar\cos\theta+a^{2}+r^{2}\sin^{2}\theta}\\
+ & =\sqrt{r^{2}\cos^{2}\theta+r^{2}\sin^{2}\theta-2ar\cos\theta+a^{2}}\\
+ & =\sqrt{r^{2}\left(\cos^{2}\theta+\sin^{2}\theta\right)-2ar\cos\theta+a^{2}}\\
+ & \overset{\alpha}{=}\sqrt{r^{2}\left(1\right)-2ar\cos\theta+a^{2}}\\
+ & =\sqrt{a^{2}+r^{2}-2ar\cos\theta}
+\end{align*}
+
+\end_inset
+
+where equation 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ uses the Pythagorean identity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Use elementary geometry to show that 
+\begin_inset Formula $\left|AB\right|=r$
+\end_inset
+
+ when 
+\begin_inset Formula $\theta=\frac{\pi}{3}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Solution*
+Suppose 
+\begin_inset Formula $\left|AB\right|=r$
+\end_inset
+
+.
+ Then since 
+\begin_inset Formula $\left|OB\right|=\left|OA\right|=r$
+\end_inset
+
+, all three sides of the triangle 
+\begin_inset Formula $\triangle OAB$
+\end_inset
+
+ are equal to 
+\begin_inset Formula $r$
+\end_inset
+
+, that is to say 
+\begin_inset Formula $\triangle OAB$
+\end_inset
+
+ is an equilateral triangle.
+ By applying the isosceles triangle theorem twice, we can show that an equilater
+al triangle must also be equiangular (i.e.
+ have 3 equal angles).
+ Thus all three interior angles of 
+\begin_inset Formula $\triangle OAB$
+\end_inset
+
+ are equal.
+ Since the angles of a triangle sum to 
+\begin_inset Formula $\pi$
+\end_inset
+
+, each angle must be 
+\begin_inset Formula $\frac{\pi}{3}$
+\end_inset
+
+.
+ So we know 
+\begin_inset Formula $\left|AB\right|=r$
+\end_inset
+
+ when 
+\begin_inset Formula $\theta=\frac{\pi}{3}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:slope-intercept-to-polar"
+
+\end_inset
+
+Given an arbitrary line in slope-intercept form 
+\begin_inset Formula $y=mx+b$
+\end_inset
+
+, re-express the equation in polar coordinates with 
+\begin_inset Formula $r=f\left(\theta\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+Changing to polar, we have:
+\end_layout
+
+\begin_layout Solution*
+\begin_inset Formula 
+\begin{align*}
+y & =r\sin\theta\\
+x & =r\cos\theta
+\end{align*}
+
+\end_inset
+
+then
+\begin_inset Formula 
+\begin{align*}
+y & =mx+b\\
+r\sin\theta & =mr\cos\theta+b\\
+r\sin\theta-mr\cos\theta & =b\\
+r\left(\sin\theta-m\cos\theta\right) & =b\\
+r & =\frac{b}{\sin\theta-m\cos\theta}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:slope-to-polar"
+
+\end_inset
+
+Find the slope of the line through 
+\begin_inset Formula $\overline{AB}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+The slope 
+\begin_inset Formula $m$
+\end_inset
+
+ of 
+\begin_inset Formula $\overline{AB}$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\begin{align*}
+m & =\frac{r\sin\theta-0}{r\cos\theta-r}\\
+ & =\frac{r\sin\theta}{r\left(\cos\theta-1\right)}\\
+ & =\frac{\sin\theta}{\cos\theta-1}\\
+ & \overset{\gamma}{=}\frac{-1}{\tan\frac{\theta}{2}}\\
+ & \overset{\delta}{=}-\cot\frac{\theta}{2}
+\end{align*}
+
+\end_inset
+
+where equation 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ follows from the half-angle formula for 
+\begin_inset Formula $\tan\frac{\theta}{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $\delta$
+\end_inset
+
+ by the definition of 
+\begin_inset Formula $\cot$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Problem
+Find the 
+\begin_inset Formula $y$
+\end_inset
+
+ intercept of the line through 
+\begin_inset Formula $\overline{AB}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Solution*
+To find the 
+\begin_inset Formula $y$
+\end_inset
+
+-intercept of the line with slope 
+\begin_inset Formula $m=-\cot\frac{\theta}{2}$
+\end_inset
+
+ passing through the point 
+\begin_inset Formula $\left(r,0\right)$
+\end_inset
+
+, we use the result of problems 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:slope-intercept-to-polar"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:slope-to-polar"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{b}{\sin\theta-m\cos\theta} & =r\\
+b & =r\left(\sin\theta-m\cos\theta\right)\\
+ & =r\left(\sin\theta+\cot\frac{\theta}{2}\cos\theta\right)\\
+ & =r\left(\sin\theta+\frac{\sin\theta}{1-\cos\theta}\cos\theta\right)\\
+ & =r\sin\theta\left(1+\frac{\cos\theta}{1-\cos\theta}\right)\\
+ & \overset{\alpha}{=}r\sin\theta\left(\frac{1-\cos\theta}{1-\cos\theta}+\frac{\cos\theta}{1-\cos\theta}\right)\\
+ & =r\sin\theta\left(\frac{1-\cos\theta+\cos\theta}{1-\cos\theta}\right)\\
+ & =r\frac{\sin\theta}{1-\cos\theta}\\
+ & =r\cot\left(\frac{\theta}{2}\right)
+\end{align*}
+
+\end_inset
+
+Note that in to obtain equation 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, we multiply 
+\begin_inset Formula $1$
+\end_inset
+
+ by 
+\begin_inset Formula $\frac{1-\cos\theta}{1-\cos\theta}$
+\end_inset
+
+ to convert to a common denominator.
+ 
+\end_layout
+
+\begin_layout Problem
+In this problem, we will repeat our previous work but using the point-slope
+ equation of a line instead of the slope-intercept form.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Write the point slope equation of a line
+\end_layout
+
+\begin_layout Enumerate
+Given the point-slope equation of a line, identify an expression for the
+ 
+\begin_inset Formula $y$
+\end_inset
+
+-intercept.
+ Call this expression 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Compute the 
+\begin_inset Formula $y$
+\end_inset
+
+-intercept of the line through 
+\begin_inset Formula $\overline{AB}$
+\end_inset
+
+, in polar form:
+\end_layout
+
+\begin_layout Enumerate
+Write the point slope equation of a line in polar form
+\end_layout
+
+\begin_layout Enumerate
+Write the point slope equation of the line through 
+\begin_inset Formula $\overline{AB}$
+\end_inset
+
+ in polar form
+\end_layout
+
+\begin_layout Enumerate
+Write the point slope equation of the line through 
+\begin_inset Formula $\overline{AB}$
+\end_inset
+
+ in slope-intercept form
+\end_layout
+
+\begin_layout Enumerate
+Write the point slope equation of the line through 
+\begin_inset Formula $\overline{AB}$
+\end_inset
+
+ in slope-intercept form, assuming 
+\begin_inset Formula $\theta=\frac{\pi}{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $r=2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+What are the slope and intercept of the line through 
+\begin_inset Formula $\overline{AB}$
+\end_inset
+
+ when 
+\begin_inset Formula $\theta=\frac{\pi}{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $r=2$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+Make a conjecture about the relationship between the slope of a line in
+ polar form and the intercept
+\end_layout
+
+\begin_layout Enumerate
+Write an expression for the set of all points in the circular segment 
+\begin_inset Formula $\aleph$
+\end_inset
+
+ using polar coordinates
+\end_layout
+
+\begin_layout Enumerate
+Write an expression for the set of all points in the circular segment 
+\begin_inset Formula $\aleph$
+\end_inset
+
+ using Cartesian coordinates
+\end_layout
+
+\begin_layout Solution*
+Several parts:
+\end_layout
+
+\begin_layout Enumerate
+Recall point-slope form is given by:
+\begin_inset Formula 
+\[
+y-y_{1}=m\left(x-x_{1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We identify for the intercept as follows
+\begin_inset Formula 
+\begin{align*}
+y-y_{1} & =m\left(x-x_{1}\right)\\
+y & =mx-mx_{1}+y_{1}\\
+y-mx & =-mx_{1}+y_{1}\\
+ & =b
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Since 
+\begin_inset Formula $b=-mx_{1}+y_{1}$
+\end_inset
+
+, using the result from problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:slope-to-polar"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+that 
+\begin_inset Formula $m=-\cot\frac{\theta}{2}$
+\end_inset
+
+ and that the line passes through 
+\begin_inset Formula $\left(x_{1},y_{1}\right)=\left(r,0\right)$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align*}
+b & =-mx_{1}+y_{1}\\
+ & =\cot\frac{\theta}{2}r
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+To convert the point slope form of a line to polar form, we make the usual
+ substitutions.
+ One wrinkle is that we must use notation that distinguishes the point 
+\begin_inset Formula $\left(x_{1},y_{1}\right)=\left(r\cos\theta,r\sin\theta\right)$
+\end_inset
+
+ from the variables 
+\begin_inset Formula $x=r\cos\theta$
+\end_inset
+
+ and 
+\begin_inset Formula $y=r\sin\theta$
+\end_inset
+
+.
+ Thus we refer to 
+\begin_inset Formula $\left(x_{1},y_{1}\right)=\left(r'\cos\theta',r''\sin\theta''\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+r\sin\theta-r'\sin\theta'=m\left(r\cos\theta-r''\cos\theta''\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We simply plug in for 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(r'\cos\theta',r''\sin\theta''\right)$
+\end_inset
+
+ to the previous equation
+\begin_inset Formula 
+\begin{align*}
+r\sin\theta-r'\sin\theta' & =m\left(r\cos\theta-r''\cos\theta''\right)\\
+r\sin\theta-0 & =-\cot\frac{\theta'}{2}\left(r\cos\theta-r''\right)\\
+r\sin\theta & =-\cot\frac{\theta'}{2}\left(r\cos\theta-r''\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+From problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:slope-intercept-to-polar"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we know the polar form of a line in slope intercept form is:
+\begin_inset Formula 
+\[
+r=\frac{b}{\sin\theta-m\cos\theta}
+\]
+
+\end_inset
+
+We also previously showed that 
+\begin_inset Formula $b=\cot\frac{\theta}{2}r$
+\end_inset
+
+ and 
+\begin_inset Formula $m=-\cot\frac{\theta}{2}$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\[
+r=\frac{b}{\sin\theta-m\cos\theta}=\frac{\cot\frac{\theta}{2}r}{\sin\theta+\cot\frac{\theta}{2}\cos\theta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+When 
+\begin_inset Formula $\theta=\frac{\pi}{3}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\cot\frac{\theta}{2}=\frac{\pi}{6}=\sqrt{3}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $r=2$
+\end_inset
+
+, we have:
+\begin_inset Formula 
+\[
+r=\frac{\cot\frac{\theta}{2}r}{\sin\theta+\cot\frac{\theta}{2}\cos\theta}=\frac{\sqrt{3}\cdot2}{\sin\theta+\sqrt{3}\cos\theta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Since 
+\begin_inset Formula $b=\cot\frac{\theta}{2}r$
+\end_inset
+
+ is the intercept and 
+\begin_inset Formula $m=-\cot\frac{\theta}{2}$
+\end_inset
+
+ is the slope, when 
+\begin_inset Formula $r=2$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta=\frac{\pi}{3}$
+\end_inset
+
+ we have:
+\begin_inset Formula 
+\[
+b=\sqrt{3}\cdot2,\hfill m=\sqrt{3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In this problem, we found that the intercept 
+\begin_inset Formula $b$
+\end_inset
+
+ was equal to the slope 
+\begin_inset Formula $m$
+\end_inset
+
+ multiplied by a factor of 
+\begin_inset Formula $-r$
+\end_inset
+
+.
+ That is
+\begin_inset Formula 
+\begin{align*}
+m & =-\cot\frac{\theta}{2}\\
+-mr & =\cot\frac{\theta}{2}r\\
+ & =b
+\end{align*}
+
+\end_inset
+
+we conjecture that it is always true that 
+\begin_inset Formula $b=-mr$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document

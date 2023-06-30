@@ -1,0 +1,1437 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{refstyle}
+
+\usepackage{prettyref}
+\newrefformat{def}{Definition\,\ref{#1}}
+\newrefformat{prop}{Proposition\,\ref{#1}}
+\newref{example}{name=example~}
+\newref{exercise}{name=exercise~}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+logicalmkup
+\end_modules
+\maintain_unincluded_children false
+\begin_local_layout
+Format 66
+InsetLayout Flex:definition
+    LyxType               charstyle
+    LabelString           definitinon
+    LatexType             command
+    LatexName             definition
+    Font
+      Color	cyan
+      Series	Bold
+    EndFont
+    Preamble
+    \newcommand{\definition}[1]{\textcolor{cyan}{\textbf{\index{#1}#1}}}
+    EndPreamble
+    InToc                 true
+    HTMLTag               code
+	ResetsFont true
+End
+\end_local_layout
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Graph Transformations
+\end_layout
+
+\begin_layout Author
+Evan Russenberger-Rosica
+\end_layout
+
+\begin_layout Date
+June 23, 2023
+\end_layout
+
+\begin_layout Abstract
+In this note, we examine the four elementary transformations of a function.
+ Visual examples are provided in addition to written discussion.
+ We show how to build more complex transformations from compositions of
+ these elementary transformations.
+ We conclude with a discussion of the implications of the commutativity
+ of the elementary transformations.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The Four Elementary Graph Transformations 
+\end_layout
+
+\begin_layout Standard
+We begin by reviewing the four elementary transformations of a function.
+ These consist of shifting a graph horizontally or vertically, as well as
+ horizontal and vertical scaling.
+ 
+\end_layout
+
+\begin_layout Enumerate
+To shift the graph of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ up, we add a positive number 
+\begin_inset Formula $k$
+\end_inset
+
+ to 
+\begin_inset Formula $f(x)$
+\end_inset
+
+, and to shift it down we add a negative number.
+ Thus vertically shifting 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ by 
+\begin_inset Formula $k$
+\end_inset
+
+ takes the form 
+\begin_inset Formula $f(x)+k$
+\end_inset
+
+, with the direction of movement (up or down) depending on the sign of 
+\begin_inset Formula $k$
+\end_inset
+
+ (i.e.
+ if 
+\begin_inset Formula $k$
+\end_inset
+
+ is positive or negative).
+\end_layout
+
+\begin_layout Enumerate
+To stretch or shrink the graph of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ vertically by a factor of 
+\begin_inset Formula $a$
+\end_inset
+
+, we simply multiply 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $|a|>1$
+\end_inset
+
+ the graph is vertically stretched, and if 
+\begin_inset Formula $1>|a|$
+\end_inset
+
+ the graph shrinks vertically.
+ If 
+\begin_inset Formula $a<0$
+\end_inset
+
+, the graph is flipped or reflected about the 
+\begin_inset Formula $x$
+\end_inset
+
+-axis and stretched by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ In particular, if we encounter 
+\begin_inset Formula $-af\left(x\right)$
+\end_inset
+
+, we might think of it as 
+\begin_inset Formula $-1\cdot af\left(x\right)$
+\end_inset
+
+, so it is clear that 
+\begin_inset Formula $-af\left(x\right)$
+\end_inset
+
+ represents both flipping and vertically stretching/shrinking of 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The transformation 
+\begin_inset Formula $f(x+k)$
+\end_inset
+
+ will move the 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ to the left or right depending if the sign of 
+\begin_inset Formula $k$
+\end_inset
+
+ is positive or negative.
+ 
+\end_layout
+
+\begin_layout Enumerate
+We can scale 
+\begin_inset Formula $f$
+\end_inset
+
+ horizontally, that is make 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ narrower or wider, by multiplying 
+\begin_inset Formula $x$
+\end_inset
+
+ by a constant.
+ In particular 
+\begin_inset Formula $f\left(ax\right)$
+\end_inset
+
+ becomes narrower if 
+\begin_inset Formula $|a|>1$
+\end_inset
+
+, wider if 
+\begin_inset Formula $|a|>0$
+\end_inset
+
+, and if 
+\begin_inset Formula $a<0$
+\end_inset
+
+, 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ is flipped across the 
+\begin_inset Formula $y$
+\end_inset
+
+-axis.
+ 
+\end_layout
+
+\begin_layout Standard
+Many students often have trouble remembering which direction the graph moves,
+ when we shift the graph horizontally so we will illustrate with an example.
+\end_layout
+
+\begin_layout Example
+Consider the graph of 
+\begin_inset Formula $f(x)=x^{2}$
+\end_inset
+
+.
+ We know what this graph looks like; it is a parabola opening upwards with
+ one root at 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+ Now consider 
+\begin_inset Formula $f(x+3)=(x+3)^{2}$
+\end_inset
+
+, where is its root? I.e, for what value of 
+\begin_inset Formula $x$
+\end_inset
+
+ is is 
+\begin_inset Formula $f(x+3)=0$
+\end_inset
+
+? Well, when 
+\begin_inset Formula $x=-3$
+\end_inset
+
+, 
+\begin_inset Formula $f\left(x+3\right)=\left(-3+3\right)^{2}=0^{2}=0$
+\end_inset
+
+.
+ So now the root is at 
+\begin_inset Formula $-3$
+\end_inset
+
+, so changing 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ to 
+\begin_inset Formula $f(x+3)$
+\end_inset
+
+ has moved 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ three units to the left.
+ If we repeat this experiment, we will see that 
+\begin_inset Formula $f\left(x-3\right)$
+\end_inset
+
+ has a zero at 
+\begin_inset Formula $x=3$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $f\left(x-3\right)$
+\end_inset
+
+ moves 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ three units to the right.
+ 
+\end_layout
+
+\begin_layout Standard
+We summarize the basic graph transformations below in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:Graph-Transformations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and illustrate them in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Vertical-Translations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Horizontal-Translations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Action
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Algebra
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Note
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vertical Shift
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f\left(x\right)+k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Direction of shift 
+\begin_inset Formula $\left(\uparrow,\downarrow\right)$
+\end_inset
+
+ if 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\begin_inset Formula $\left(+,-\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vertical Scaling (Stretch/Shrink)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $af\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stretch if 
+\begin_inset Formula $a>1$
+\end_inset
+
+, shrink if 
+\begin_inset Formula $0<a<1$
+\end_inset
+
+, flip over 
+\begin_inset Formula $x$
+\end_inset
+
+-axis when 
+\begin_inset Formula $a<0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Horizontal Shift
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f\left(x+k\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Shift 
+\begin_inset Formula $\leftarrow$
+\end_inset
+
+ if 
+\begin_inset Formula $k$
+\end_inset
+
+ positive, shift 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ if 
+\begin_inset Formula $k$
+\end_inset
+
+ is negative
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Horizontal Scaling
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f\left(ax\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Narrower if 
+\begin_inset Formula $a>1$
+\end_inset
+
+, wider if 
+\begin_inset Formula $a<1$
+\end_inset
+
+, flip over 
+\begin_inset Formula $y$
+\end_inset
+
+-axis when 
+\begin_inset Formula $a<0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Graph-Transformations"
+
+\end_inset
+
+Graph Transformations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-vertical-shift-v2.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Shifting 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ vertically by adding a constant outside 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-vertical-shrink.pdf
+	scale 35
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scaling 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ vertically by multiplying 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by a constant
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-vertical-flip.pdf
+	scale 35
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Flipping 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ across the 
+\begin_inset Formula $x$
+\end_inset
+
+-axis by multiplying 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by a negative constant
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-vertical-stretch.pdf
+	scale 35
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scaling 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ vertically by multiplying 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by a constant
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vertical Transformations
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Vertical-Translations"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-horizontal-shift.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Shifting 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ horizontally
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-horizontal-scaling.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Shrinking 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ horizontally
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-horizontal-stretching.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stretching 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ horizontally
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-horizontal-flip.pdf
+	scale 35
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Flipping 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ horizontally (across the 
+\begin_inset Formula $y$
+\end_inset
+
+-axis)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Horizontal Transformations 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Horizontal-Translations"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Building Complex Graph Transformations
+\end_layout
+
+\begin_layout Standard
+We often apply multiple transformations to a single function.
+ For example, we might scale 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ vertically and horizontally, or we might flip it vertically and shift it
+ horizontally.
+ We might even apply all four transformations to a single graph.
+ How do we approach finding the shape of the translated graph? 
+\end_layout
+
+\begin_layout Standard
+The key insight is that each complex transformation, by which mean a transformat
+ion created as the composition of several elementary transformations, can
+ be built as a sequence of elementary transformations.
+ However, the order in which these elementary operations are performed matters.
+ 
+\end_layout
+
+\begin_layout Example
+Order of Operations Matters
+\end_layout
+
+\begin_layout Standard
+Consider the transformation 
+\begin_inset Formula $af\left(x\right)+b$
+\end_inset
+
+.
+ By following the order of operations (PEMDAS), we see that 
+\begin_inset Formula $af\left(x\right)+b$
+\end_inset
+
+ represents scaling 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by 
+\begin_inset Formula $a$
+\end_inset
+
+ then then shifting it by 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ How would this transformation change if we applied the shift first? In
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:order-matters"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we depict each transformation as a sequence of the same two elementary
+ transformations, but changing the order in which they are applied.
+ We can see that changing the order of operations causes the end results
+ to be quite different.
+ Specifically, shifting then flipping 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ results in 
+\begin_inset Formula $-\left(f\left(x\right)+1\right)=-f\left(x\right)-1$
+\end_inset
+
+ while flipping then shifting results in 
+\begin_inset Formula $-f\left(x\right)+1$
+\end_inset
+
+.
+ Thus flipping first results in a graph which is 
+\begin_inset Formula $2$
+\end_inset
+
+ units higher than the once produced by shifting first.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{-1in}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-combination-1.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Flipping vertically then shifting 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ vertically
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/fig-Graph-Translations-combination-3.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Shifting vertically then flipping 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ vertically
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Order Matters - Shifting then Scaling and vice versa 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:order-matters"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We now discuss the general case
+\end_layout
+
+\begin_layout Theorem
+Any combination of the four basic transformations can be represented as
+\begin_inset Formula 
+\begin{equation}
+af\left(b\left(x-c\right)\right)+d\label{eq:1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By following the order of operations in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we can interpret 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ as transforming 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $af\left(b\left(x-c\right)\right)+d$
+\end_inset
+
+ by the following sequence of elementary transformations
+\end_layout
+
+\begin_layout Enumerate
+Horizontally shift 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by 
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Horizontal scale 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by a factor of 
+\begin_inset Formula $b$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vertically scaling 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ a factor of 
+\begin_inset Formula $a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Vertically shift 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ by 
+\begin_inset Formula $d$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,6 @@
+*.lyx~
+*.lyx#
+*.aux
+*.log
+*.gz
+*.synctex.gz

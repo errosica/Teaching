@@ -1,0 +1,24 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc, intersections, math}
+
+
+\begin{document}
+	\begin{tikzpicture}[scale=4, mystyle/.style={circle,fill,scale=0.5}]
+	%plot f(x)=sin(x)
+	\draw[ultra thick,red,domain=-pi:pi,smooth] plot (\x,{sin(\x r)});
+	\node [ultra thick, red, below=.5cm] at (-pi/2,-1) {\Huge $f(x)$};	
+
+	\draw[ultra thick, black, ->] (pi/2,1) -- (pi/2,1.95) node[midway, above, fill=white] {Shift vertically by $1$};
+	\draw[ultra thick, black, ->] (-pi/2,-1) -- (-pi/2,-.05) node[midway, above, fill=white] {Shift vertically by $1$};
+	\draw[ultra thick, black, ->] (0.1,0.1) -- (0.1,1.05) node[midway, above, fill=white] {Shift vertically by $1$};
+
+	%plot f(x)+1=sin(x)+1
+	\draw[ultra thick,cyan,domain=-pi:pi,smooth] plot (\x,{sin(\x r)+1});
+	\node [ultra thick, cyan, above=.5cm] at (-pi/2,0) {\Huge $f(x)+1$};
+
+	\input{fig-Graph-Translations-Background.tex}
+
+	\end{tikzpicture}
+
+
+\end{document}

@@ -1,0 +1,906 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Triangular Numbers
+\end_layout
+
+\begin_layout Author
+Evan Rosica
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+One beautiful aspect of mathematics is that it allows us to see the similarities
+ between situations that may appear quite different.
+ In this article we examine several seemingly different problems: 
+\end_layout
+
+\begin_layout Enumerate
+What is the 
+\begin_inset Formula $n$
+\end_inset
+
+th triangular number 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+? 
+\end_layout
+
+\begin_layout Enumerate
+Given 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+, how do we find 
+\begin_inset Formula $T_{n+1}$
+\end_inset
+
+? That is, if we know some triangular number 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+, how do we find the next one?
+\end_layout
+
+\begin_layout Enumerate
+What is the sum of the first 
+\begin_inset Formula $n$
+\end_inset
+
+ integers 
+\begin_inset Formula $\left(1+2+3+4+\cdots+n=?\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+An 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix is said to be 
+\series bold
+upper triangular 
+\series default
+if all entries below the main diagonal are equal to 0.
+ How many entries of an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ upper triangular matrix must be equal to 0? 
+\end_layout
+
+\begin_layout Enumerate
+There are 
+\begin_inset Formula $n$
+\end_inset
+
+ students in a science class.
+ How many pairs can be formed? 
+\end_layout
+
+\begin_layout Enumerate
+Show that 
+\begin_inset Formula ${n \choose 2}=\frac{n\left(n-1\right)}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definitions
+\end_layout
+
+\begin_layout Standard
+We begin by definiing a triangular number as numbers which can be respresented
+ in the following form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccccccccccccccccccc}
+ &  &  &  &  &  &  &  &  &  &  &  &  &  & \square\\
+ &  &  &  &  &  &  &  &  & \square &  &  &  &  & \square & \square\\
+ &  &  &  &  & \square &  &  &  & \square & \square &  &  &  & \square & \square & \square\\
+ &  & \square &  &  & \square & \square &  &  & \square & \square & \square &  &  & \square & \square & \square & \square\\
+\square &  & \square & \square &  & \square & \square & \square &  & \square & \square & \square & \square &  & \square & \square & \square & \square & \square\\
+T_{1} &  & T_{2} &  &  & T_{3} &  &  &  & T_{4} &  &  &  &  & T_{5}
+\end{array}\label{eq:triangular_numbers}
+\end{equation}
+
+\end_inset
+
+Each box represents 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $1$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Thus, counting the boxes, we see the first five triangular numbers are
+ 
+\begin_inset Formula $T_{1}=1$
+\end_inset
+
+, 
+\begin_inset Formula $T_{2}=3$
+\end_inset
+
+, 
+\begin_inset Formula $T_{3}=6$
+\end_inset
+
+, 
+\begin_inset Formula $T_{4}=10$
+\end_inset
+
+, 
+\begin_inset Formula $T_{5}=15$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Solutions
+\end_layout
+
+\begin_layout Standard
+We now answer the questions in order:
+\end_layout
+
+\begin_layout Enumerate
+Given some triangular number 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ represented by a triangular array, we can find the value of 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ using a geometric argument.
+ For a concreate example, we will demonstrate using 
+\begin_inset Formula $T_{5}$
+\end_inset
+
+.
+ We first create a copy of 
+\begin_inset Formula $T_{5}$
+\end_inset
+
+, and attach it back to itself.
+ We name the result 
+\begin_inset Formula $R_{5\times6}$
+\end_inset
+
+ because it is a 
+\begin_inset Formula $5\times6$
+\end_inset
+
+ rectangle (i.e.
+ it has 5 rows and 6 columns).
+ This is shown below:
+\begin_inset Formula 
+\begin{equation}
+\underset{T_{5}}{\begin{array}{ccccc}
+\square\\
+\square & \square\\
+\square & \square & \square\\
+\square & \square & \square & \square\\
+\square & \square & \square & \square & \square
+\end{array}}\longrightarrow\underset{R^{5\times6}}{\begin{array}{cccccc}
+\square & \blacksquare & \blacksquare & \blacksquare & \blacksquare & \blacksquare\\
+\square & \square & \blacksquare & \blacksquare & \blacksquare & \blacksquare\\
+\square & \square & \square & \blacksquare & \blacksquare & \blacksquare\\
+\square & \square & \square & \square & \blacksquare & \blacksquare\\
+\square & \square & \square & \square & \square & \blacksquare
+\end{array}}\label{eq:symmetry argument}
+\end{equation}
+
+\end_inset
+
+How many items are in 
+\begin_inset Formula $T_{5}$
+\end_inset
+
+? Clearly, there are 
+\begin_inset Formula $5\times6=30$
+\end_inset
+
+ entries in 
+\begin_inset Formula $R_{5\times6}$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{5\times6}$
+\end_inset
+
+ is twice the size of 
+\begin_inset Formula $T_{5}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $T_{5}=\frac{5\cdot6}{2}=15$
+\end_inset
+
+.
+ In general:
+\begin_inset Formula 
+\begin{equation}
+T_{n}=\frac{n\left(n+1\right)}{2}\label{eq:Tn_formula}
+\end{equation}
+
+\end_inset
+
+This shows that we can interpret 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ as half of the elements in a 
+\begin_inset Formula $n\times\left(n+1\right)$
+\end_inset
+
+ shaped matrix.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Given the 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+, how do we find 
+\begin_inset Formula $T_{n+1}$
+\end_inset
+
+? Well, we showed that 
+\begin_inset Formula $T_{n}=\frac{n\left(n+1\right)}{2}$
+\end_inset
+
+.
+ In the figures above, we can see that the difference between 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{n+1}$
+\end_inset
+
+ is a row with 
+\begin_inset Formula $n+1$
+\end_inset
+
+ elements.
+ E.g.
+ to go from 
+\begin_inset Formula $T_{4}$
+\end_inset
+
+, we simply add a row with 
+\begin_inset Formula $5$
+\end_inset
+
+ elements.
+ Therefore, we might guess that 
+\begin_inset Formula 
+\begin{align*}
+T_{n+1} & =T_{n}+\left(n+1\right)\\
+ & =\frac{n\left(n+1\right)}{2}+\left(n+1\right)
+\end{align*}
+
+\end_inset
+
+We also know (by plugging 
+\begin_inset Formula $n+1$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Tn_formula"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) that:
+\begin_inset Formula 
+\[
+T_{n+1}=\frac{\left(n+1\right)\left(\left(n+1\right)+1\right)}{2}
+\]
+
+\end_inset
+
+ If we are correct, both of these must be the equal:
+\begin_inset Formula 
+\[
+\frac{n\left(n+1\right)}{2}+\left(n+1\right)=\frac{\left(n+1\right)\left(\left(n+1\right)+1\right)}{2}
+\]
+
+\end_inset
+
+And one can show via some basic algebra that this is indeed the case.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Now, we will use our previous work to find the sum of the first 
+\begin_inset Formula $n$
+\end_inset
+
+ integers 
+\begin_inset Formula $\left(\sum_{i=1}^{n}=1+2+3+4+\cdots+n\right)$
+\end_inset
+
+.
+ We begin by observing that the number of entries in the 
+\begin_inset Formula $n$
+\end_inset
+
+th row of 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+, is equal to 
+\begin_inset Formula $n$
+\end_inset
+
+, as shown below:
+\begin_inset Formula 
+\[
+\begin{array}{cccccc}
+1\rightarrow & \square\\
+2\rightarrow & \square & \square\\
+3\rightarrow & \square & \square & \square\\
+4\rightarrow & \square & \square & \square & \square\\
+5\rightarrow & \square & \square & \square & \square & \square\\
+ & T_{5}
+\end{array}
+\]
+
+\end_inset
+
+Thus counting the elements in 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ is the same as computing 
+\begin_inset Formula $\sum_{i=1}^{n}i$
+\end_inset
+
+.
+ But we already know 
+\begin_inset Formula $T_{n}=\frac{n\left(n+1\right)}{2}$
+\end_inset
+
+, and therefore:
+\begin_inset Formula 
+\[
+T_{n}=\sum_{i=1}^{n}i=\frac{n\left(n+1\right)}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The next two questions use similar thinking but with a couple twists.
+ Here, we must figure out how many entries of an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ upper triangular matrix must be equal to 0.
+ To approach this question, let's first fix 
+\begin_inset Formula $n=4$
+\end_inset
+
+.
+ For example, below is a 
+\begin_inset Formula $4\times4$
+\end_inset
+
+ upper triangular matrix.
+ The 
+\begin_inset Formula $0$
+\end_inset
+
+ entries represent spots which must be 0 in an upper triangular matrix.
+ 
+\begin_inset Formula 
+\[
+A=\begin{bmatrix}a & b & c & d\\
+0 & e & f & g\\
+0 & 0 & h & i\\
+0 & 0 & 0 & j
+\end{bmatrix}
+\]
+
+\end_inset
+
+We will call the entry in row 
+\begin_inset Formula $i$
+\end_inset
+
+ and column 
+\begin_inset Formula $j$
+\end_inset
+
+ of matrix A the 
+\begin_inset Formula $i,j$
+\end_inset
+
+th entry of A, and write 
+\begin_inset Formula $a_{i,j}$
+\end_inset
+
+.
+ E.g:
+\begin_inset Formula 
+\[
+A=\begin{bmatrix}a_{1,1} & a_{1,2} & a_{1.3} & a_{1,4}\\
+a_{2,1} & a_{2,2} & a_{2,3} & a_{2,4}\\
+a_{3,1} & a_{3,2} & a_{3,3} & a_{3,4}\\
+a_{4,1} & a_{4,2} & a_{4,3} & a_{44}
+\end{bmatrix}
+\]
+
+\end_inset
+
+There are serveral ways to approach this problem.
+ One way would be to overserve that the number of entries equal to 0 must
+ be less than the total number of entries.
+ Since it is a 
+\begin_inset Formula $4\times4$
+\end_inset
+
+ matrix, there are 
+\begin_inset Formula $4^{2}=16$
+\end_inset
+
+ entries.
+ Thus, the total number of entries that must be zero must be less than 16.
+ The simpliest solution is to then observe that the diagonal entries, i.e.
+ those of the form 
+\begin_inset Formula $a_{i,i}$
+\end_inset
+
+, are not among those which must be equal to 0.
+ In the 
+\begin_inset Formula $4\times4$
+\end_inset
+
+ case, we can count that there are 4 diagonal entries.
+ When we 'delete' the diagonal entries (which we represent with a 
+\begin_inset Formula $\Delta$
+\end_inset
+
+), we obtain a matrix that looks like this:
+\begin_inset Formula 
+\[
+A=\begin{bmatrix}\Delta & b & c & d\\
+0 & \Delta & f & g\\
+0 & 0 & \Delta & i\\
+0 & 0 & 0 & \Delta
+\end{bmatrix}
+\]
+
+\end_inset
+
+Observe that by deleting the diagonal entries, we have split the matrix
+ into two equal size halves, the lower 6 elements, which must be equal to
+ 0, and the upper 6 elements.
+ I.e.
+ half of the 
+\begin_inset Formula $12$
+\end_inset
+
+ entries must be equal to 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\frac{16-4}{2}=6$
+\end_inset
+
+ entries must be equal to 0.
+ Now let's examine the general case of an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix.
+ We follow the same reasoning as before.
+ There are 
+\begin_inset Formula $n^{2}$
+\end_inset
+
+ total entries, so the number of entires which must be zero must be less
+ than that.
+ We subtract out the diagonal elements, to create two symmetric halves.
+ But how many diagonal elements are there in an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix? Well, each row (or equivalently each column) has exactly one diagonal
+ element in it.
+ E.g.
+ in the 
+\begin_inset Formula $k$
+\end_inset
+
+th row , the diagonal element is 
+\begin_inset Formula $a_{k,k}$
+\end_inset
+
+.
+ Since there are 
+\begin_inset Formula $n$
+\end_inset
+
+ rows, and each row has exactly one diagonal element, we have that there
+ are 
+\begin_inset Formula $n$
+\end_inset
+
+ diagonal elements.
+ So of the 
+\begin_inset Formula $n^{2}-n$
+\end_inset
+
+ remaining elements, exactly half (those below the main diagonal) must be
+ equal to 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ I.e.
+ 
+\begin_inset Formula 
+\[
+\frac{n^{2}-n}{2}=\frac{n\left(n-1\right)}{2}
+\]
+
+\end_inset
+
+ elements must be equal to 0.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Consider an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ upper triangular matrix as before.
+ We write the element at row 
+\begin_inset Formula $i$
+\end_inset
+
+ and column 
+\begin_inset Formula $j$
+\end_inset
+
+ as 
+\begin_inset Formula $a_{i,j}$
+\end_inset
+
+.
+ We intepret 
+\begin_inset Formula $a_{i,j}$
+\end_inset
+
+ as the pairing of students 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ All possible pairs 
+\begin_inset Formula $a_{i,j}$
+\end_inset
+
+ of the 
+\begin_inset Formula $n$
+\end_inset
+
+ students are represented in matrix below
+\begin_inset Formula 
+\[
+A=\begin{bmatrix}a_{1,1} & a_{1,2} & a_{1,3} & a_{1,4} & \cdots & a_{1,n}\\
+a_{2,1} & a_{2,2} & a_{2,3} & a_{2,4} & \cdots & a_{2,n}\\
+a_{3,1} & a_{3,2} & a_{3,3} & a_{3,4} & \cdots & a_{3,n}\\
+a_{4,1} & a_{4,2} & a_{4,3} & a_{4,4} & \cdots & a_{4,n}\\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+a_{n,1} & a_{n,2} & a_{n,3} & a_{n,4} & \cdots & a_{n,n}
+\end{bmatrix}
+\]
+
+\end_inset
+
+However, some of the pairs are nonsensical.
+ E.g.
+ 
+\begin_inset Formula $a_{1,1,}$
+\end_inset
+
+ represents pairing student 
+\begin_inset Formula $1$
+\end_inset
+
+ with themselves.
+ Additionally, 
+\begin_inset Formula $a_{i,j}$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{j,i}$
+\end_inset
+
+ represent the same pairing (since ordering doesnt matter pairing student
+ 
+\begin_inset Formula $i$
+\end_inset
+
+ with 
+\begin_inset Formula $j$
+\end_inset
+
+ is the same as pairing student 
+\begin_inset Formula $j$
+\end_inset
+
+ with 
+\begin_inset Formula $i$
+\end_inset
+
+).
+ Thus we need to eliminate some entries from 
+\begin_inset Formula $A$
+\end_inset
+
+ to avoid doublecounting, and singleton pairs (e.g.
+ 
+\begin_inset Formula $a_{1,1}$
+\end_inset
+
+).
+ Which entries to we eliminate? Well all diagonal entries are invalid since
+ they are of the form 
+\begin_inset Formula $a_{i,i}$
+\end_inset
+
+ and thus represent one person 
+\begin_inset Quotes eld
+\end_inset
+
+pairs
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Additionally entries 
+\begin_inset Formula $a_{i,j}$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{j,i}$
+\end_inset
+
+ (which represent doublecounting) are across from each other diagonally.
+ Thus, we only need to count the entries marked as 
+\begin_inset Formula $0$
+\end_inset
+
+ in the matrix below:
+\begin_inset Formula 
+\[
+A=\begin{bmatrix}a_{1,1} & a_{1,2} & a_{1,3} & a_{1,4} & \cdots & a_{1,n}\\
+0 & a_{2,2} & a_{2,3} & a_{2,4} & \cdots & a_{2,n}\\
+0 & 0 & a_{3,3} & a_{3,4} & \cdots & a_{3,n}\\
+0 & 0 & 0 & a_{4,4} & \cdots & a_{4,n}\\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & 0 & \cdots & a_{n,n}
+\end{bmatrix}
+\]
+
+\end_inset
+
+How many zeros are there in matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ above? Exactly the same number of entries which must be zero in an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ upper triangular matrix.
+ We showed in the last exercise that this number was 
+\begin_inset Formula $\frac{n^{2}-n}{2}=\frac{n\left(n-1\right)}{2}$
+\end_inset
+
+.
+ Again, we have simply taken all 
+\begin_inset Formula $n^{2}$
+\end_inset
+
+ elements, removed the 
+\begin_inset Formula $n$
+\end_inset
+
+ diagonal elements, creating two equal halves, from which we select only
+ the lower half in order to avoid double counting.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If you've taken a basic course in statistics, you may recall that the answer
+ to the previous question can also be expressed as a number written 
+\begin_inset Formula ${n \choose 2}$
+\end_inset
+
+, and read 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $n$
+\end_inset
+
+ choose 
+\begin_inset Formula $2$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ But what does 
+\begin_inset Formula ${n \choose 2}$
+\end_inset
+
+ mean? One interpretation is that 
+\begin_inset Formula ${n \choose 2}$
+\end_inset
+
+ is the number of 2 element subsets of an 
+\begin_inset Formula $n$
+\end_inset
+
+-set (a set with 
+\begin_inset Formula $n$
+\end_inset
+
+ elements).
+ However, we will focus on the algebraic definition which is that
+\begin_inset Formula 
+\[
+{n \choose k}=\frac{n!}{k!\left(n-k\right)!}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $n!=n\cdot\left(n-1\right)\cdot\left(n-2\right)\cdot\cdots\cdot3\cdot2\cdot1$
+\end_inset
+
+.
+ For example, 
+\begin_inset Formula $5!=5\cdot4\cdot3\cdot2\cdot1=120$
+\end_inset
+
+.
+ So in the special case of 
+\begin_inset Formula ${n \choose 2}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+{n \choose 2} & =\frac{n!}{2!\left(n-2\right)!}\\
+ & =\frac{n!}{2\left(n-2\right)!}\\
+ & =\frac{n\left(n-1\right)\left(n-2\right)\left(n-3\right)\cdot\cdots\cdot3\cdot2\cdot1}{\qquad\quad\ 2\left(n-2\right)\left(n-3\right)\cdot\cdots\cdot3\cdot2\cdot1}\\
+ & =\frac{n\left(n-1\right)}{2}
+\end{align*}
+
+\end_inset
+
+which is the same as our result from the previous problem.
+ 
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,49 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\begin{document}
+\begin{tikzpicture}[scale=3, xscale=2]
+    % Axis
+    \draw[->] (-0.2,0) -- (2,0) node[right] {$x$};
+    \draw[->] (0,-0.2) -- (0,3) node[above] {$f(x)$};
+
+    % setting up the Cartesian Grid
+    \draw[step=.5cm,help lines] (-.2,-.2) grid (2,3);
+
+    % Function
+    \draw[domain=0:1.75,smooth,variable=\x,blue] plot ({\x},{\x*\x}) node [left, yshift=4] {$f(x) = x^2$};
+
+    % Delta lines
+    \draw[dashed, red] (1.3,0) -- (1.3,{1.3*1.3}) node[black, at start, below, yshift=-5pt, rotate=45, xshift=-10pt]{$x_0 - \delta$};
+    \draw[dashed, red] (1.7,0) -- (1.7,{1.7*1.7}) node[black, at start, below, yshift=-5pt, rotate=45, xshift=-10pt]{$x_0 + \delta$};
+
+    % Epsilon lines
+    \draw[dashed, red] (-.1,{1.5*1.5+0.2}) -- (2,{1.5*1.5+0.2}) node[at start, left] {$f(x_0) + \epsilon$};
+    \draw[dashed, red] (-.1,{1.5*1.5-0.2}) -- (2,{1.5*1.5-0.2}) node[at start, left] {$f(x_0) - \epsilon$};
+
+    % Label the point (x_0,y_0))
+    % note, because of the , in the math expression x_0,f(x_0), we must surround the expression with braces
+    % see https://tex.stackexchange.com/questions/65106/comma-in-the-formula-in-tikz
+    \node[circle,fill,scale=0.5,label=right:{ $(x_0,f(x_0))$}] at (1.5,2.25) {};
+
+    % Labels for x0 and y0 on axes
+    \draw[dashed] (1.5,0) -- (1.5,{1.5*1.5}) node[at start, below, yshift=-7pt, rotate=45, xshift=-10pt] {$x_0$};
+    \draw[dashed] (0,1.5*1.5) -- (1.5,{1.5*1.5}) node[at start, left] {$f(x_0)$};
+
+    % Bracket for 2*delta
+    \draw[decorate,decoration={brace,amplitude=4pt},xshift=0pt,yshift=0pt] (1.3,0)--(1.7,0)  node[midway,above,yshift=0pt] {$d(x,x_0)<\delta$};
+
+	% Bracket for 2*epsilon
+    \draw[decorate,decoration={brace,amplitude=4pt},xshift=0pt,yshift=0pt](2,{1.5*1.5+0.2}) -- (2,{1.5*1.5-0.2}) node[midway,right,yshift=0pt] {$d(f(x),f(x_0))<\varepsilon$};
+
+
+    \foreach \x/\xtext in {0, 1, 2}
+      \draw[xshift=\x cm] (0pt,1pt) -- (0pt,-1pt) node[below,fill=white] {$\xtext$};
+
+    \foreach \y/\ytext in {0, 1, 2}
+      \draw[yshift=\y cm] (-1pt,0pt) -- (-1pt,0pt) node[left,fill=white] {$\ytext$};
+
+
+
+\end{tikzpicture}
+\end{document}

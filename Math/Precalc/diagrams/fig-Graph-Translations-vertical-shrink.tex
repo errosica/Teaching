@@ -1,0 +1,33 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc, intersections, math}
+
+\begin{document}
+	\begin{tikzpicture}[scale=4, mystyle/.style={circle,fill,scale=0.5}]
+
+		% set the window size. The \c notation allows us to use more complex variable names
+		\tikzmath{\c{width} = pi;}
+
+        % setting up the Cartesian Grid. Note "help lines" = "gray, very thin"
+        \draw[step=.5cm,help lines] (-1*\c{width},-2) grid (\c{width},2);
+        % setting up the real and imaginary axis. 
+        \draw[thick, <->] (-1*\c{width},0) -- (\c{width},0) coordinate (x axis) node[right] {$x$};
+        \draw[thick, <->] (0,-2) -- (0,2) coordinate (y axis) node[right] {$y$};;
+
+	\draw[ultra thick,red,domain=-\c{width}:\c{width},smooth] plot (\x,{sin(\x r)});
+	\node[ultra thick, red, below] at (-pi/2,-1) {\Huge $f(x)$};
+
+	\draw[ultra thick, black, ->] (pi/2,1) -- (pi/2,.5) node[midway, fill=white] {Shrink vertically by $2x$};
+	\draw[ultra thick, black, ->] (-pi/2,-1) -- (-pi/2,-.5) node[midway, fill=white] {Shrink vertically by $2x$};
+
+	\draw[ultra thick,cyan,domain=-\c{width}:\c{width},smooth] plot (\x,{.5*sin(\x r)});
+	\node[ultra thick, cyan, above] at (-pi/2,-1/2) {\Huge $\frac{1}{2}f(x)$};
+
+	\foreach \x in {-3,-2, ..., 3}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north, fill=white] {$\x$};
+ 	\foreach \y in {-2,-1,0,1,2}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east, fill=white] {$\y$};
+
+	\end{tikzpicture}
+
+
+\end{document}

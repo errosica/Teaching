@@ -1,0 +1,22 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc, intersections, math}
+
+\begin{document}
+	\begin{tikzpicture}[scale=4, mystyle/.style={circle,fill,scale=0.5}]
+
+	\draw[ultra thick,red,domain=-pi:pi,smooth] plot (\x,{sin(\x r)});
+	\node [ultra thick, red, above] at (pi/2,1) {\Huge $f(x)$};
+	
+	\draw[ultra thick, black, ->] (pi/2,1) -- (pi/2,-.95) node[midway, above, fill=white] {Flip about $x$ axis};
+	\draw[ultra thick, black, ->] (-pi/2,-1) -- (-pi/2,0.95) node[midway, above, fill=white] {Flip about $x$ axis};
+
+
+	\draw[ultra thick,cyan,domain=-pi:pi,smooth] plot (\x,{-1*sin(\x r)});
+	\node [ultra thick, cyan, above] at (-pi/2,1) {\Huge $-f(x)$};
+
+	\input{fig-Graph-Translations-Background.tex}
+
+	\end{tikzpicture}
+
+
+\end{document}
